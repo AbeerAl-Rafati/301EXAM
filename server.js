@@ -42,7 +42,8 @@ app.get('/get-characters', (req, res) => {
 
   const url = `https://psychonauts-api.herokuapp.com/api/characters?limit=10`
 
-  superagent.get(url).then((data) => {
+  superagent.get(url).then((error, data) => {
+
     const myData = data.body.map(aaa => {
       newCharachter = new myCharacters(aaa)
     }

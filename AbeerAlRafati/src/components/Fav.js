@@ -26,20 +26,20 @@ export class Fav extends Component {
   }
 
 
-  editUpdatFormname = (name) => {
+  editUpdatFormname = (name, id) => {
     this.setState = {
       name: name.target.value,
 
     }
   }
-  editUpdatFormgender = (gender) => {
+  editUpdatFormgender = (gender, id) => {
     this.setState = {
 
       gender: gender.target.value,
     }
   }
 
-  updateItem = async (e, id) => {
+  updateItem = async (e) => {
     e.preventdefault();
     const request = await axios.put(`${process.env.REACT_APP_SERVER}/get-characters/:id`, e)
 

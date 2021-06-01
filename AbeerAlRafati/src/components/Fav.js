@@ -39,9 +39,9 @@ export class Fav extends Component {
     }
   }
 
-  updateItem = async (obj, id) => {
-
-    const request = await axios.put(`${process.env.REACT_APP_SERVER}/get-characters/:id`, obj)
+  updateItem = async (e, id) => {
+    e.preventdefault();
+    const request = await axios.put(`${process.env.REACT_APP_SERVER}/get-characters/:id`, e)
 
     this.setState = {
       crudData: request.data,

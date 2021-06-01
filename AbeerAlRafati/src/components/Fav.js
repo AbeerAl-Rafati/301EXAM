@@ -8,6 +8,9 @@ export class Fav extends Component {
     super(props);
     this.state = {
       crudData: this.props.crudData,
+      name: '',
+      gender: ''
+
 
     };
   }
@@ -23,16 +26,24 @@ export class Fav extends Component {
   }
 
 
-  editUpdatForm = (crud, id) => {
+  editUpdatFormname = (name, id) => {
     this.setState = {
-      crudData.name : crud.target.value,
-      crudData.gender : crud.target.value,
+      name: crud.target.value,
+
+    }
+  }
+  editUpdatFormgender = (gender, id) => {
+    this.setState = {
+
+      gender: crud.target.value,
     }
   }
 
-  updateItem = async => {
+  updateItem = async (id) => {
 
     const request = await axios.put(`${process.env.REACT_APP_SERVER}/get-characters/:id`,)
+
+
   }
 
 
@@ -42,7 +53,7 @@ export class Fav extends Component {
       <div>
         <p>fav</p>
 
-        <Form editUpdatForm={this.editUpdatForm} updateItem={this.updateItem} />
+        <Form editUpdatFormname={this.editUpdatFormname} updateItem={this.updateItem} editUpdatFormgender={this.editUpdatFormgender} />
         <CrudData deleteItem={this.deleteItem} updateItem={this.updateItem} />
 
 
